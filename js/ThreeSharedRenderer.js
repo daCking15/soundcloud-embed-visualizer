@@ -1,9 +1,19 @@
 var ThreeSharedRenderer = function(_perspective){
-	this.w = document.documentElement.clientWidth;
-    this.h = document.documentElement.clientHeight;
+
+    //Portrait
+    if (window.innerHeight > window.innerWidth){
+        this.w = window.innerWidth;
+        this.h = window.innerHeight*(3/4);
+    }
+
+    //Landscape
+    else{
+        this.w = window.innerWidth*(3/4);
+        this.h = window.innerHeight;
+    }
 
 	this.matrix = _perspective ? 
-        new THREE.PerspectiveCamera( 45, this.w*(3/4) / this.h, .1, 100 ) :
+        new THREE.PerspectiveCamera( 45, this.w / this.h, .1, 100 ) :
         new THREE.OrthographicCamera( -.5, .5, .5, -.5, 1, 10 );
     this.matrix.position.z = 5;
 
@@ -31,8 +41,17 @@ ThreeSharedRenderer.prototype.init_ortho_matrix = function(){
 
 ThreeSharedRenderer.prototype.resize = function(){
 
-    this.w = window.innerWidth*(3/4);
-    this.h = window.innerHeight;
+    //Portrait
+    if (window.innerHeight > window.innerWidth){
+        this.w = window.innerWidth;
+        this.h = window.innerHeight*(3/4);
+    }
+
+    //Landscape
+    else{
+        this.w = window.innerWidth*(3/4);
+        this.h = window.innerHeight;
+    }
 
     this.matrix.aspect = this.w / this.h;
     this.matrix.updateProjectionMatrix();
@@ -46,9 +65,6 @@ ThreeSharedRenderer.prototype.resize = function(){
 }
 
 ThreeSharedRenderer.prototype.init_renderer = function(){
-
-    this.w = window.innerWidth*(3/4);
-    this.h = window.innerHeight;
 
     this.renderer = new THREE.WebGLRenderer();
 

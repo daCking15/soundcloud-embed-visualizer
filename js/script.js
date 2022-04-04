@@ -52,17 +52,40 @@ var init = function(){
 var update = function(){
 
     //Custom
+    var portrait = false;
+    if (window.innerHeight > window.innerWidth){
+        portrait = true;
+    }
+
     var canvas = document.getElementsByTagName("canvas")[0];
     canvas.style["z-index"] = -1;
-    canvas.style["margin-left"] = "25%";
-    canvas.height = window.innerHeight;
-    canvas.style.height = canvas.height + "px";
-    canvas.width = (3/4)*window.innerWidth;
-    canvas.style.width = canvas.width + "px";
 
-    var iFrame = document.getElementsByTagName("iframe")[0];
-    iFrame.height = window.innerHeight;
-    iFrame.width = (1/4)*window.innerWidth;
+    //Landscape
+    if (!portrait){
+        canvas.style["margin-left"] = "25%";
+        canvas.height = window.innerHeight;
+        canvas.style.height = canvas.height + "px";
+        canvas.width = (3/4)*window.innerWidth;
+        canvas.style.width = canvas.width + "px";
+
+        var iFrame = document.getElementsByTagName("iframe")[0];
+        iFrame.height = window.innerHeight;
+        iFrame.width = (1/4)*window.innerWidth;
+    }
+
+    //Portrait
+    else{
+        //canvas.style["margin-top"] = "25%";
+        canvas.height = (3/4)*window.innerHeight;
+        canvas.style.height = canvas.height + "px";
+        canvas.width = window.innerWidth;
+        canvas.style.width = canvas.width + "px";
+
+        var iFrame = document.getElementsByTagName("iframe")[0];
+        iFrame.style["margin-top"] = window.innerHeight*(3/4)+"px";
+        iFrame.height = window.innerHeight*(1/4);
+        iFrame.width = window.innerWidth;
+    }
 
     requestAnimationFrame( update );
 
