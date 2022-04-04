@@ -233,7 +233,7 @@ NoiseBlob.prototype.init_scene = function(){
   console.log("Load Image");
   var loader = new THREE.TextureLoader();
   var material = new THREE.MeshLambertMaterial({
-    map: loader.load('../assets/m1.jpg')
+    map: loader.load('assets/m1.jpg')
   });
   material.side = THREE.DoubleSide;
   var geometry = new THREE.PlaneGeometry(10, 10*.75);

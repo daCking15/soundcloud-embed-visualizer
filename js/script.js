@@ -47,6 +47,8 @@ var init = function(){
     // init gui
     m_ctrl = new Ctrl(m_blob, m_light, m_pbr, m_analyzer);
 
+    console.log("v1.01.3");
+
 };
 
 
