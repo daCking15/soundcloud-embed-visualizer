@@ -228,6 +228,29 @@ NoiseBlob.prototype.init_scene = function(){
   _geom_cube.applyMatrix(mS);
 
   this.scene.add(_mesh_cube);
+
+  //Place Image
+  console.log("Load Image");
+  var loader = new THREE.TextureLoader();
+  var material = new THREE.MeshLambertMaterial({
+    map: loader.load('../assets/m1.jpg')
+  });
+  material.side = THREE.DoubleSide;
+  var geometry = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(0,0,0)
+  this.scene.add(mesh);
+  console.log(mesh);
+
+  // Add a point light with #fff color, .7 intensity, and 0 distance
+  var light = new THREE.PointLight( 0xffffff, 1, 0 );
+  light.position.set(1, 1, 100 );
+  this.scene.add(light)
+
+  var light2 = new THREE.PointLight( 0xffffff, 1, 0 );
+  light2.position.set(1, 1, -100 );
+  this.scene.add(light2)
+
 };
 
 NoiseBlob.prototype.set_retina = function(){
