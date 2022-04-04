@@ -389,16 +389,6 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(light);
   console.log(light);
 
-  var light2 = new THREE.PointLight( 0xffffff, 1, 0 );
-  light2.position.set(0, 0, 0 );
-  this.scene.add(light2);
-  console.log(light2);
-
-  var light3 = new THREE.PointLight( 0xffffff, 1, 0 );
-  light3.position.set(0, 0, 0 );
-  this.scene.add(light3);
-  console.log(light3);
-
 };
 
 NoiseBlob.prototype.set_retina = function(){
