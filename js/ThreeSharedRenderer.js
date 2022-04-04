@@ -3,7 +3,7 @@ var ThreeSharedRenderer = function(_perspective){
     this.h = document.documentElement.clientHeight;
 
 	this.matrix = _perspective ? 
-        new THREE.PerspectiveCamera( 45, this.w / this.h, .1, 100 ) :
+        new THREE.PerspectiveCamera( 45, this.w*(3/4) / this.h, .1, 100 ) :
         new THREE.OrthographicCamera( -.5, .5, .5, -.5, 1, 10 );
     this.matrix.position.z = 5;
 
@@ -30,12 +30,12 @@ ThreeSharedRenderer.prototype.init_ortho_matrix = function(){
 };
 
 ThreeSharedRenderer.prototype.resize = function(){
-    this.w = document.documentElement.clientWidth;
-    this.h = document.documentElement.clientHeight;
+
+    this.w = window.innerWidth*(3/4);
+    this.h = window.innerHeight;
 
     this.matrix.aspect = this.w / this.h;
     this.matrix.updateProjectionMatrix();
-
     this.renderer.setPixelRatio( window.devicePixelRatio );
     this.renderer.setSize( this.w, this.h );
 
@@ -46,11 +46,17 @@ ThreeSharedRenderer.prototype.resize = function(){
 }
 
 ThreeSharedRenderer.prototype.init_renderer = function(){
+
+    this.w = window.innerWidth*(3/4);
+    this.h = window.innerHeight;
+
     this.renderer = new THREE.WebGLRenderer();
 
+    this.matrix.aspect = this.w / this.h;
+    this.matrix.updateProjectionMatrix();
     this.renderer.setPixelRatio( window.devicePixelRatio );
     this.renderer.setSize( this.w, this.h );
-    
+
     this.renderer.autoClear = false;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFShadowMap;

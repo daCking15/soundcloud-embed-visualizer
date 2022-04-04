@@ -9,6 +9,9 @@ var m_ctrl;
 var m_device_checker;
 
 var init = function(){
+
+    console.log(window);
+
     // device_checker
     m_device_checker = new DeviceChecker();
     var _is_mobile = m_device_checker.is_mobile();
@@ -47,6 +50,20 @@ var init = function(){
 
 
 var update = function(){
+
+    //Custom
+    var canvas = document.getElementsByTagName("canvas")[0];
+    canvas.style["z-index"] = -1;
+    canvas.style["margin-left"] = "25%";
+    canvas.height = window.innerHeight;
+    canvas.style.height = canvas.height + "px";
+    canvas.width = (3/4)*window.innerWidth;
+    canvas.style.width = canvas.width + "px";
+
+    var iFrame = document.getElementsByTagName("iframe")[0];
+    iFrame.height = window.innerHeight;
+    iFrame.width = (1/4)*window.innerWidth;
+
     requestAnimationFrame( update );
 
     // update audio analyzer
@@ -68,6 +85,7 @@ var update = function(){
     if(m_ctrl.params.cam_ziggle) 
         m_renderer.ziggle_cam(m_analyzer.get_history());
     m_renderer.render(m_render_queue);
+
 };
 
 
