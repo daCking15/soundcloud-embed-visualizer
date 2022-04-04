@@ -229,18 +229,127 @@ NoiseBlob.prototype.init_scene = function(){
 
   this.scene.add(_mesh_cube);
 
-  //Place Image
-  console.log("Load Image");
   var loader = new THREE.TextureLoader();
-  var material = new THREE.MeshLambertMaterial({
+
+  //Cover Art
+  console.log("sXlXcXn M1");
+  var material1 = new THREE.MeshLambertMaterial({
     map: loader.load('assets/m1.jpg')
   });
-  material.side = THREE.DoubleSide;
-  var geometry = new THREE.PlaneGeometry(10, 10*.75);
-  var mesh = new THREE.Mesh(geometry, material);
-  mesh.position.set(0,0,0)
-  this.scene.add(mesh);
-  console.log(mesh);
+  material1.side = THREE.DoubleSide;
+  var geometry1 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh1 = new THREE.Mesh(geometry1, material1);
+  mesh1.position.set(0,4,-10);
+  this.scene.add(mesh1);
+  console.log(mesh1);
+
+  //Pushin C
+  console.log("Pushin C");
+  var material2 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Pushin C.jpg')
+  });
+  material2.side = THREE.DoubleSide;
+  var geometry2 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh2 = new THREE.Mesh(geometry2, material2);
+  mesh2.position.set(0,4,-10);
+  this.scene.add(mesh2);
+  console.log(mesh2);
+
+  //Martyr
+  console.log("Martyr");
+  var material3 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Martyr.jpg')
+  });
+  material3.side = THREE.DoubleSide;
+  var geometry3 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh3 = new THREE.Mesh(geometry3, material3);
+  mesh3.position.set(0,4,-10);
+  this.scene.add(mesh3);
+  console.log(mesh3);
+
+  //RIP Brotha Mane
+  console.log("RIP Brotha Mane");
+  var material4 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/RIP Brotha Mane.jpg')
+  });
+  material4.side = THREE.DoubleSide;
+  var geometry4 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh4 = new THREE.Mesh(geometry4, material4);
+  mesh4.position.set(0,4,-10);
+  this.scene.add(mesh4);
+  console.log(mesh4);
+
+  //Indigo Child
+  console.log("Indigo Child");
+  var material5 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Indigo Child.jpg')
+  });
+  material5.side = THREE.DoubleSide;
+  var geometry5 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh5 = new THREE.Mesh(geometry5, material5);
+  mesh5.position.set(0,4,-10);
+  this.scene.add(mesh5);
+  console.log(mesh5);
+
+  //Red Sky
+  console.log("Red Sky");
+  var material6 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Red Sky.jpg')
+  });
+  material6.side = THREE.DoubleSide;
+  var geometry6 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh6 = new THREE.Mesh(geometry6, material6);
+  mesh6.position.set(0,4,-10);
+  this.scene.add(mesh6);
+  console.log(mesh6);
+
+  //Feed Me Adversity
+  console.log("Feed Me Adversity");
+  var material7 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Feed Me Adversity.png')
+  });
+  material7.side = THREE.DoubleSide;
+  var geometry7 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh7 = new THREE.Mesh(geometry7, material7);
+  mesh7.position.set(0,4,-10);
+  this.scene.add(mesh7);
+  console.log(mesh7);
+
+  //Trap Back
+  console.log("Trap Back");
+  var material8 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Trap Back.jpg')
+  });
+  material8.side = THREE.DoubleSide;
+  var geometry8 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh8 = new THREE.Mesh(geometry8, material8);
+  mesh8.position.set(0,4,-10);
+  this.scene.add(mesh8);
+  console.log(mesh8);
+
+  //Inflection Point
+  console.log("Inflection Point");
+  var material9 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Inflection Point.jpg')
+  });
+  material9.side = THREE.DoubleSide;
+  var geometry9 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh9 = new THREE.Mesh(geometry9, material9);
+  mesh9.position.set(0,4,-10);
+  this.scene.add(mesh9);
+  console.log(mesh9);
+
+  //It's What It Is
+  console.log("It's What It Is");
+  var material10 = new THREE.MeshLambertMaterial({
+    map: loader.load("assets/It's What It Is.png")
+  });
+  material10.side = THREE.DoubleSide;
+  var geometry10 = new THREE.PlaneGeometry(10, 10*.75);
+  var mesh10 = new THREE.Mesh(geometry10, material10);
+  mesh10.position.set(0,4,-10);
+  this.scene.add(mesh10);
+  console.log(mesh10);
 
   // Add a point light with #fff color, .7 intensity, and 0 distance
   var light = new THREE.PointLight( 0xffffff, 1, 0 );
