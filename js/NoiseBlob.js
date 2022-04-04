@@ -239,7 +239,8 @@ NoiseBlob.prototype.init_scene = function(){
   material1.side = THREE.DoubleSide;
   var geometry1 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh1 = new THREE.Mesh(geometry1, material1);
-  mesh1.position.set(0,4,-10);
+  mesh1.position.set(0,0,0);
+  mesh1.scale.set(0.4,0.4,0.4);
   this.scene.add(mesh1);
   console.log(mesh1);
 
@@ -251,7 +252,7 @@ NoiseBlob.prototype.init_scene = function(){
   material2.side = THREE.DoubleSide;
   var geometry2 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh2 = new THREE.Mesh(geometry2, material2);
-  mesh2.position.set(0,4,-10);
+  mesh2.position.set(0,0,-20);
   this.scene.add(mesh2);
   console.log(mesh2);
 
@@ -263,7 +264,7 @@ NoiseBlob.prototype.init_scene = function(){
   material3.side = THREE.DoubleSide;
   var geometry3 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh3 = new THREE.Mesh(geometry3, material3);
-  mesh3.position.set(0,4,-10);
+  mesh3.position.set(7,0,-14);
   this.scene.add(mesh3);
   console.log(mesh3);
 
@@ -275,7 +276,7 @@ NoiseBlob.prototype.init_scene = function(){
   material4.side = THREE.DoubleSide;
   var geometry4 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh4 = new THREE.Mesh(geometry4, material4);
-  mesh4.position.set(0,4,-10);
+  mesh4.position.set(14,0,-7);
   this.scene.add(mesh4);
   console.log(mesh4);
 
@@ -287,7 +288,7 @@ NoiseBlob.prototype.init_scene = function(){
   material5.side = THREE.DoubleSide;
   var geometry5 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh5 = new THREE.Mesh(geometry5, material5);
-  mesh5.position.set(0,4,-10);
+  mesh5.position.set(20,0,0);
   this.scene.add(mesh5);
   console.log(mesh5);
 
@@ -299,7 +300,7 @@ NoiseBlob.prototype.init_scene = function(){
   material6.side = THREE.DoubleSide;
   var geometry6 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh6 = new THREE.Mesh(geometry6, material6);
-  mesh6.position.set(0,4,-10);
+  mesh6.position.set(10,0,10);
   this.scene.add(mesh6);
   console.log(mesh6);
 
@@ -311,7 +312,7 @@ NoiseBlob.prototype.init_scene = function(){
   material7.side = THREE.DoubleSide;
   var geometry7 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh7 = new THREE.Mesh(geometry7, material7);
-  mesh7.position.set(0,4,-10);
+  mesh7.position.set(0,0,20);
   this.scene.add(mesh7);
   console.log(mesh7);
 
@@ -323,7 +324,7 @@ NoiseBlob.prototype.init_scene = function(){
   material8.side = THREE.DoubleSide;
   var geometry8 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh8 = new THREE.Mesh(geometry8, material8);
-  mesh8.position.set(0,4,-10);
+  mesh8.position.set(-10,0,10);
   this.scene.add(mesh8);
   console.log(mesh8);
 
@@ -335,7 +336,7 @@ NoiseBlob.prototype.init_scene = function(){
   material9.side = THREE.DoubleSide;
   var geometry9 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh9 = new THREE.Mesh(geometry9, material9);
-  mesh9.position.set(0,4,-10);
+  mesh9.position.set(-20,0,0);
   this.scene.add(mesh9);
   console.log(mesh9);
 
@@ -347,9 +348,21 @@ NoiseBlob.prototype.init_scene = function(){
   material10.side = THREE.DoubleSide;
   var geometry10 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh10 = new THREE.Mesh(geometry10, material10);
-  mesh10.position.set(0,4,-10);
+  mesh10.position.set(-14,0,-7);
   this.scene.add(mesh10);
   console.log(mesh10);
+
+  //Track 10
+  // console.log("It's What It Is");
+  // var material10 = new THREE.MeshLambertMaterial({
+  //   map: loader.load("assets/It's What It Is.png")
+  // });
+  // material10.side = THREE.DoubleSide;
+  // var geometry10 = new THREE.PlaneGeometry(10, 10*.75);
+  // var mesh10 = new THREE.Mesh(geometry10, material10);
+  // mesh10.position.set(-7,0,-14);
+  // this.scene.add(mesh10);
+  // console.log(mesh10);
 
   // Add a point light with #fff color, .7 intensity, and 0 distance
   var light = new THREE.PointLight( 0xffffff, 1, 0 );
