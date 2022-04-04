@@ -239,7 +239,7 @@ NoiseBlob.prototype.init_scene = function(){
   material1.side = THREE.DoubleSide;
   var geometry1 = new THREE.PlaneGeometry(10, 10*.75);
   var mesh1 = new THREE.Mesh(geometry1, material1);
-  mesh1.position.set(0,0,0);
+  mesh1.position.set(0,-3,0);
   mesh1.scale.set(0.6,0.6,0.6);
   mesh1.quaternion.set(0.7071068, 0, 0, 0.7071068);
   this.scene.add(mesh1);
@@ -385,16 +385,19 @@ NoiseBlob.prototype.init_scene = function(){
 
   // Add a point light with #fff color, .7 intensity, and 0 distance
   var light = new THREE.PointLight( 0xffffff, 1, 0 );
-  light.position.set(1, 1, 100 );
-  this.scene.add(light)
+  light.position.set(0, 0, 0 );
+  this.scene.add(light);
+  console.log(light);
 
   var light2 = new THREE.PointLight( 0xffffff, 1, 0 );
-  light2.position.set(1, 1, -100 );
-  this.scene.add(light2)
+  light2.position.set(0, 0, 0 );
+  this.scene.add(light2);
+  console.log(light2);
 
   var light3 = new THREE.PointLight( 0xffffff, 1, 0 );
   light3.position.set(0, 0, 0 );
-  this.scene.add(light3)
+  this.scene.add(light3);
+  console.log(light3);
 
 };
 
