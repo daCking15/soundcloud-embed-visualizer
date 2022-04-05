@@ -253,7 +253,7 @@ NoiseBlob.prototype.init_scene = function(){
   material2.side = THREE.DoubleSide;
   var geometry2 = new THREE.PlaneGeometry(10, 10);
   var mesh2 = new THREE.Mesh(geometry2, material2);
-  mesh2.position.set(0,0,-20);
+  mesh2.position.set(0,0,-15);
   mesh2.scale.set(0.6,0.6,0.6);
   this.scene.add(mesh2);
   console.log(mesh2);
@@ -286,20 +286,6 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(mesh4);
   console.log(mesh4);
 
-  //Indigo Child
-  console.log("Indigo Child");
-  var material5 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Indigo Child.jpg')
-  });
-  material5.side = THREE.DoubleSide;
-  var geometry5 = new THREE.PlaneGeometry(10, 10);
-  var mesh5 = new THREE.Mesh(geometry5, material5);
-  mesh5.position.set(15,0,0);
-  mesh5.scale.set(0.6,0.6,0.6);
-  mesh5.quaternion.set(0, -0.7071068, 0, 0.7071068);
-  this.scene.add(mesh5);
-  console.log(mesh5);
-
   //Placeholder 1
   console.log("Placeholder 1");
   var materialP1 = new THREE.MeshLambertMaterial({
@@ -308,11 +294,25 @@ NoiseBlob.prototype.init_scene = function(){
   materialP1.side = THREE.DoubleSide;
   var geometryP1 = new THREE.PlaneGeometry(10, 10);
   var meshP1 = new THREE.Mesh(geometryP1, materialP1);
-  meshP1.position.set(13.33,0,6.66);
+  meshP1.position.set(15,0,0);
   meshP1.scale.set(0.6,0.6,0.6);
-  meshP1.quaternion.set(0, -0.8660254, 0, 0.5);
+  meshP1.quaternion.set(0, -0.7071068, 0, 0.7071068);
   this.scene.add(meshP1);
   console.log(meshP1);
+
+  //Indigo Child
+  console.log("Indigo Child");
+  var material5 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Cover Art/Indigo Child.jpg')
+  });
+  material5.side = THREE.DoubleSide;
+  var geometry5 = new THREE.PlaneGeometry(10, 10);
+  var mesh5 = new THREE.Mesh(geometry5, material5);
+  mesh5.position.set(13.33,0,6.66);
+  mesh5.scale.set(0.6,0.6,0.6);
+  mesh5.quaternion.set(0, -0.8660254, 0, 0.5);
+  this.scene.add(mesh5);
+  console.log(mesh5);
 
   //Red Sky
   console.log("Red Sky");
@@ -356,20 +356,6 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(mesh8);
   console.log(mesh8);
 
-  //Placeholder 1
-  console.log("Placeholder 2");
-  var materialP2 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/m1.jpg')
-  });
-  materialP2.side = THREE.DoubleSide;
-  var geometryP2 = new THREE.PlaneGeometry(10, 10);
-  var meshP2 = new THREE.Mesh(geometryP2, materialP2);
-  meshP2.position.set(-13.33,0,6.66);
-  meshP2.scale.set(0.6,0.6,0.6);
-  meshP2.quaternion.set(0, -0.8660254, 0, -0.5);
-  this.scene.add(meshP2);
-  console.log(meshP2);
-
   //Inflection Point
   console.log("Inflection Point");
   var material9 = new THREE.MeshLambertMaterial({
@@ -378,11 +364,25 @@ NoiseBlob.prototype.init_scene = function(){
   material9.side = THREE.DoubleSide;
   var geometry9 = new THREE.PlaneGeometry(10, 10);
   var mesh9 = new THREE.Mesh(geometry9, material9);
-  mesh9.position.set(-15,0,0);
+  mesh9.position.set(-13.33,0,6.66);
   mesh9.scale.set(0.6,0.6,0.6);
-  mesh9.quaternion.set(0, -0.7071068, 0, -0.7071068);
+  mesh9.quaternion.set(0, -0.8660254, 0, -0.5);
   this.scene.add(mesh9);
   console.log(mesh9);
+
+  //Placeholder 2
+  console.log("Placeholder 2");
+  var materialP2 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Cover Art/m1.jpg')
+  });
+  materialP2.side = THREE.DoubleSide;
+  var geometryP2 = new THREE.PlaneGeometry(10, 10);
+  var meshP2 = new THREE.Mesh(geometryP2, materialP2);
+  meshP2.position.set(-15,0,0);
+  meshP2.scale.set(0.6,0.6,0.6);
+  meshP2.quaternion.set(0, -0.7071068, 0, -0.7071068);
+  this.scene.add(meshP2);
+  console.log(meshP2);
 
   //It's What It Is
   console.log("It's What It Is");
@@ -393,7 +393,7 @@ NoiseBlob.prototype.init_scene = function(){
   var geometry10 = new THREE.PlaneGeometry(10, 10);
   var mesh10 = new THREE.Mesh(geometry10, material10);
   mesh10.position.set(-13.33,0,-6.66);
-  // mesh10.scale.set(0.6,0.6,0.6);
+  mesh10.scale.set(0.6,0.6,0.6);
   mesh10.quaternion.set(0, -0.5, 0, -0.8660254);
   this.scene.add(mesh10);
   console.log(mesh10);
