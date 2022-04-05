@@ -294,7 +294,7 @@ NoiseBlob.prototype.init_scene = function(){
   material5.side = THREE.DoubleSide;
   var geometry5 = new THREE.PlaneGeometry(10, 10);
   var mesh5 = new THREE.Mesh(geometry5, material5);
-  mesh5.position.set(20,0,0);
+  mesh5.position.set(15,0,0);
   mesh5.scale.set(0.6,0.6,0.6);
   mesh5.quaternion.set(0, -0.7071068, 0, 0.7071068);
   this.scene.add(mesh5);
@@ -334,9 +334,9 @@ NoiseBlob.prototype.init_scene = function(){
     map: loader.load('assets/Cover Art/Feed Me Adversity.png')
   });
   material7.side = THREE.DoubleSide;
-  var geometry7 = new THREE.PlaneGeometry(10, 10*.75);
+  var geometry7 = new THREE.PlaneGeometry(10, 10);
   var mesh7 = new THREE.Mesh(geometry7, material7);
-  mesh7.position.set(0,0,20);
+  mesh7.position.set(0,0,15);
   mesh7.scale.set(0.6,0.6,0.6);
   mesh7.quaternion.set(0, -1, 0, 0);
   this.scene.add(mesh7);
@@ -348,7 +348,7 @@ NoiseBlob.prototype.init_scene = function(){
     map: loader.load('assets/Cover Art/Trap Back.jpg')
   });
   material8.side = THREE.DoubleSide;
-  var geometry8 = new THREE.PlaneGeometry(10, 10*.75);
+  var geometry8 = new THREE.PlaneGeometry(10, 10);
   var mesh8 = new THREE.Mesh(geometry8, material8);
   mesh8.position.set(-6.66,0,13.33);
   mesh8.scale.set(0.6,0.6,0.6);
@@ -376,9 +376,9 @@ NoiseBlob.prototype.init_scene = function(){
     map: loader.load('assets/Cover Art/Inflection Point.jpg')
   });
   material9.side = THREE.DoubleSide;
-  var geometry9 = new THREE.PlaneGeometry(10, 10*.75);
+  var geometry9 = new THREE.PlaneGeometry(10, 10);
   var mesh9 = new THREE.Mesh(geometry9, material9);
-  mesh9.position.set(-20,0,0);
+  mesh9.position.set(-15,0,0);
   mesh9.scale.set(0.6,0.6,0.6);
   mesh9.quaternion.set(0, -0.7071068, 0, -0.7071068);
   this.scene.add(mesh9);
@@ -390,9 +390,9 @@ NoiseBlob.prototype.init_scene = function(){
     map: loader.load("assets/Cover Art/It's What It Is.png")
   });
   material10.side = THREE.DoubleSide;
-  var geometry10 = new THREE.PlaneGeometry(10, 10*.75);
+  var geometry10 = new THREE.PlaneGeometry(10, 10);
   var mesh10 = new THREE.Mesh(geometry10, material10);
-  mesh10.position.set(-14,0,-7);
+  mesh10.position.set(-13.33,0,-6.66);
   // mesh10.scale.set(0.6,0.6,0.6);
   mesh10.quaternion.set(0, -0.5, 0, -0.8660254);
   this.scene.add(mesh10);
@@ -404,9 +404,9 @@ NoiseBlob.prototype.init_scene = function(){
     map: loader.load("assets/Cover Art/Chris Rocked.png")
   });
   material11.side = THREE.DoubleSide;
-  var geometry11 = new THREE.PlaneGeometry(10, 10*.75);
+  var geometry11 = new THREE.PlaneGeometry(10, 10);
   var mesh11 = new THREE.Mesh(geometry11, material11);
-  mesh11.position.set(-7,0,-14);
+  mesh11.position.set(-6.66,0,-13.33);
   mesh11.scale.set(0.6,0.6,0.6);
   mesh11.quaternion.set(0, -0.258819, 0, -0.9659258);
   this.scene.add(mesh11);
