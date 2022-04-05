@@ -41,6 +41,12 @@ ThreeSharedRenderer.prototype.init_ortho_matrix = function(){
 
 ThreeSharedRenderer.prototype.resize = function(){
 
+    var revealed = true;
+    var iframe = document.getElementsByTagName("iframe")[0];
+    if (iframe.style.width == "0px"){
+        revealed = false;
+    }
+
     //Portrait
     if (window.innerHeight > window.innerWidth){
         this.w = window.innerWidth;
@@ -49,8 +55,12 @@ ThreeSharedRenderer.prototype.resize = function(){
 
     //Landscape
     else{
-        this.w = window.innerWidth*(3/4);
-        this.h = window.innerHeight;
+        this.h = window.innerHeight;        
+        if (revealed){
+            this.w = window.innerWidth*(3/4);     
+        }else{
+            this.w = window.innerWidth;
+        }
     }
 
     this.matrix.aspect = this.w / this.h;

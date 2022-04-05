@@ -8,6 +8,49 @@ var m_light;
 var m_ctrl;
 var m_device_checker;
 
+var revealed = true;
+
+var reveal = function(){
+
+    console.log("Reveal");
+
+    var canvas = document.getElementsByTagName("canvas")[0];
+    var iFrame = document.getElementsByTagName("iframe")[0];
+    var button = document.getElementById("reveal");
+    var arrow = button.children[0];
+
+    canvas.style.transition = "margin-left 2s ease 0s, width 2s ease 0s";
+    iFrame.style.transition = "width 2s ease 0s";
+    button.style.transition = "left 2s ease 0s";
+
+    if (revealed){
+
+        canvas.style["margin-left"] = "0px";
+        canvas.width = window.innerWidth;
+        canvas.style.width = canvas.width + "px";
+
+        iFrame.style.width = "0px";
+
+        button.style.left = "0px";
+        button.style.transform = "rotate(180deg)";
+    }
+
+    else{
+
+        canvas.style["margin-left"] = "25%";
+        canvas.width = window.innerWidth;
+        canvas.style.width = canvas.width + "px";
+
+        iFrame.style.width = (1/4)*window.innerWidth + "px";
+
+        button.style.left = "25%";
+        button.style.transform = "rotate(0deg)"; 
+    }
+
+    revealed = !revealed
+
+}
+
 var init = function(){
 
     console.log(window);
@@ -47,7 +90,11 @@ var init = function(){
     // init gui
     m_ctrl = new Ctrl(m_blob, m_light, m_pbr, m_analyzer);
 
-    console.log("v1.01.11");
+    console.log("v1.01.12");
+
+    var button = document.getElementById("reveal");
+    console.log("Set On Click");
+    button.onclick = reveal;
 
 };
 
@@ -63,17 +110,28 @@ var update = function(){
     var canvas = document.getElementsByTagName("canvas")[0];
     canvas.style["z-index"] = -1;
 
+    var iFrame = document.getElementsByTagName("iframe")[0];
+
     //Landscape
     if (!portrait){
-        canvas.style["margin-left"] = "25%";
+
+        if (revealed){
+            canvas.style["margin-left"] = "25%";
+            canvas.width = (3/4)*window.innerWidth;
+            iFrame.width = (1/4)*window.innerWidth;
+        }
+
+        else{
+            canvas.style["margin-left"] = "0px";
+            canvas.width = window.innerWidth;
+            iFrame.width = "0px";
+        }
+
         canvas.height = window.innerHeight;
         canvas.style.height = canvas.height + "px";
-        canvas.width = (3/4)*window.innerWidth;
         canvas.style.width = canvas.width + "px";
 
-        var iFrame = document.getElementsByTagName("iframe")[0];
         iFrame.height = window.innerHeight;
-        iFrame.width = (1/4)*window.innerWidth;
     }
 
     //Portrait
@@ -84,11 +142,14 @@ var update = function(){
         canvas.width = window.innerWidth;
         canvas.style.width = canvas.width + "px";
 
-        var iFrame = document.getElementsByTagName("iframe")[0];
         iFrame.style["margin-top"] = window.innerHeight*(3/4)+"px";
         iFrame.height = window.innerHeight*(1/4);
         iFrame.width = window.innerWidth;
     }
+
+    var resizeEvent = window.document.createEvent('UIEvents'); 
+    resizeEvent.initUIEvent('resize', true, false, window, 0); 
+    window.dispatchEvent(resizeEvent);
 
     requestAnimationFrame( update );
 
