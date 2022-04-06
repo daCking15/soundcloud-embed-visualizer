@@ -19,32 +19,67 @@ var reveal = function(){
     var button = document.getElementById("reveal");
     var arrow = button.children[0];
 
-    canvas.style.transition = "margin-left 2s ease 0s, width 2s ease 0s";
-    iFrame.style.transition = "width 2s ease 0s";
-    button.style.transition = "left 2s ease 0s";
+    canvas.style.transition = "margin-left 2s ease 0s, width 2s ease 0s, height 1s ease 0s";
+    iFrame.style.transition = "width 2s ease 0s, height 2s ease 0s, margin-top 2s ease 0s";
+    button.style.transition = "left 2s ease 0s, top 1.5s ease 0s";
 
-    if (revealed){
+    //Portrait
+    if (window.innerHeight > window.innerWidth){
 
-        canvas.style["margin-left"] = "0px";
-        canvas.width = window.innerWidth;
-        canvas.style.width = canvas.width + "px";
+        //Unreveal
+        if (revealed){
 
-        iFrame.style.width = "0px";
+            canvas.height = window.innerHeight;
+            canvas.style.height = canvas.height + "px";
 
-        button.style.left = "0px";
-        button.style.transform = "rotate(180deg)";
+            //iFrame.style.height = "0px";
+            iFrame.style["margin-top"] = "100%";
+
+            button.style.top = "calc(100% - 50px)";
+            button.style.transform = "rotate(90deg)";
+
+        }
+
+        //Reveal
+        else{
+
+            canvas.height = (2/4)*window.innerHeight;
+            canvas.style.height = canvas.height + "px";
+
+            iFrame.style["margin-top"] = "50%";
+            // iFrame.style.height = "50%";
+
+            button.style.top = "calc(50% - 50px)";
+            button.style.transform = "rotate(-90deg)";
+
+        }
     }
 
+    //Landscape
     else{
+        if (revealed){
 
-        canvas.style["margin-left"] = "25%";
-        canvas.width = window.innerWidth;
-        canvas.style.width = canvas.width + "px";
+            canvas.style["margin-left"] = "0px";
+            canvas.width = window.innerWidth;
+            canvas.style.width = canvas.width + "px";
 
-        iFrame.style.width = (1/4)*window.innerWidth + "px";
+            iFrame.style.width = "0px";
 
-        button.style.left = "25%";
-        button.style.transform = "rotate(0deg)"; 
+            button.style.left = "0px";
+            button.style.transform = "rotate(180deg)";
+        }
+
+        else{
+
+            canvas.style["margin-left"] = "25%";
+            canvas.width = window.innerWidth;
+            canvas.style.width = canvas.width + "px";
+
+            iFrame.style.width = (1/4)*window.innerWidth + "px";
+
+            button.style.left = "25%";
+            button.style.transform = "rotate(0deg)"; 
+        }
     }
 
     revealed = !revealed
@@ -90,21 +125,40 @@ var init = function(){
     // init gui
     m_ctrl = new Ctrl(m_blob, m_light, m_pbr, m_analyzer);
 
-    console.log("v1.01.12");
+    console.log("v1.02.0");
 
     var button = document.getElementById("reveal");
     console.log("Set On Click");
     button.onclick = reveal;
+
+    var iFrame = document.getElementsByTagName("iframe")[0];
+    var canvas = document.getElementsByTagName("canvas")[0];
+
+    //Portrait
+    if (window.innerHeight > window.innerWidth){
+        button.style.top = "calc(50% - 50px)";
+        button.style.left = "calc(50% - 25px)";
+        button.style.transform = "rotate(-90deg)";
+    }
+
+    //Landscape
+    else{
+        button.style.top = "calc(50% - 50px)";
+        button.style.left = "25%";
+    }
+
+    console.log(navigator);
 
 };
 
 
 var update = function(){
 
-    //Custom
-    var portrait = false;
-    if (window.innerHeight > window.innerWidth){
-        portrait = true;
+    var transition = document.getElementById("transition");
+    if (transition.style.opacity != 0){
+        transition.style.opacity -= 0.01;
+    }else{
+        transition.style["z-index"] = -1000;
     }
 
     var canvas = document.getElementsByTagName("canvas")[0];
@@ -112,9 +166,29 @@ var update = function(){
 
     var iFrame = document.getElementsByTagName("iframe")[0];
 
-    //Landscape
-    if (!portrait){
+    //Portrait
+    if (window.innerHeight > window.innerWidth){
 
+        if (revealed){
+            canvas.height = (2/4)*window.innerHeight;
+            iFrame.height = (2/4)*window.innerHeight;
+            iFrame.style["margin-top"] = (2/4)*window.innerHeight+"px";
+        }
+
+        else{
+            canvas.height = window.innerHeight;
+            //iFrame.height = "0px";
+            iFrame.style["margin-top"] = window.innerHeight;
+        }
+
+        canvas.style.height = canvas.height + "px";
+        canvas.width = window.innerWidth;
+        canvas.style.width = canvas.width + "px";
+        iFrame.width = window.innerWidth;
+    }
+
+    //Landscape
+    else {
         if (revealed){
             canvas.style["margin-left"] = "25%";
             canvas.width = (3/4)*window.innerWidth;
@@ -132,19 +206,6 @@ var update = function(){
         canvas.style.width = canvas.width + "px";
 
         iFrame.height = window.innerHeight;
-    }
-
-    //Portrait
-    else{
-        //canvas.style["margin-top"] = "25%";
-        canvas.height = (3/4)*window.innerHeight;
-        canvas.style.height = canvas.height + "px";
-        canvas.width = window.innerWidth;
-        canvas.style.width = canvas.width + "px";
-
-        iFrame.style["margin-top"] = window.innerHeight*(3/4)+"px";
-        iFrame.height = window.innerHeight*(1/4);
-        iFrame.width = window.innerWidth;
     }
 
     var resizeEvent = window.document.createEvent('UIEvents'); 

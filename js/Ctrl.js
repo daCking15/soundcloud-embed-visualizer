@@ -33,7 +33,8 @@ var Ctrl = function(_blob, _light, _pbr, _audio){
 
     this.update_params();
 
-    // dat.GUI.toggleHide();
+    //dat.GUI.toggleHide();
+    _g_scene.close();
 };
 
 Ctrl.prototype.update_params = function(){

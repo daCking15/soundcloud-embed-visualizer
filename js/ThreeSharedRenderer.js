@@ -3,7 +3,7 @@ var ThreeSharedRenderer = function(_perspective){
     //Portrait
     if (window.innerHeight > window.innerWidth){
         this.w = window.innerWidth;
-        this.h = window.innerHeight*(3/4);
+        this.h = window.innerHeight*(2/4);
     }
 
     //Landscape
@@ -43,14 +43,19 @@ ThreeSharedRenderer.prototype.resize = function(){
 
     var revealed = true;
     var iframe = document.getElementsByTagName("iframe")[0];
-    if (iframe.style.width == "0px"){
+    if (iframe.style.width == "0px" || iframe.style["margin-top"] == "100%"){
         revealed = false;
     }
 
     //Portrait
     if (window.innerHeight > window.innerWidth){
         this.w = window.innerWidth;
-        this.h = window.innerHeight*(3/4);
+        if (revealed){
+            this.h = window.innerHeight*(2/4);    
+        }else{
+            this.h = window.innerHeight;
+        }
+        
     }
 
     //Landscape
