@@ -155,9 +155,10 @@ var init = function(){
 var update = function(){
 
     var transition = document.getElementById("transition");
-    if (transition.style.opacity != 0){
+    if (transition.style.opacity >= 0){
         transition.style.opacity -= 0.01;
     }else{
+        transition.style.opacity = 0;
         transition.style["z-index"] = -1000;
     }
 
