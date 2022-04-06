@@ -3,7 +3,7 @@ var ThreeSharedRenderer = function(_perspective){
     //Portrait
     if (window.innerHeight > window.innerWidth){
         this.w = window.innerWidth;
-        this.h = window.innerHeight*(2/4);
+        this.h = window.innerHeight*(1/4);
     }
 
     //Landscape
@@ -51,7 +51,7 @@ ThreeSharedRenderer.prototype.resize = function(){
     if (window.innerHeight > window.innerWidth){
         this.w = window.innerWidth;
         if (revealed){
-            this.h = window.innerHeight*(2/4);    
+            this.h = window.innerHeight*(1/4);    
         }else{
             this.h = window.innerHeight;
         }

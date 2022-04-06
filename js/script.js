@@ -43,13 +43,13 @@ var reveal = function(){
         //Reveal
         else{
 
-            canvas.height = (2/4)*window.innerHeight;
+            canvas.height = (1/4)*window.innerHeight;
             canvas.style.height = canvas.height + "px";
 
-            iFrame.style["margin-top"] = "50%";
+            iFrame.style["margin-top"] = "25%";
             // iFrame.style.height = "50%";
 
-            button.style.top = "calc(50% - 50px)";
+            button.style.top = "calc(25% - 50px)";
             button.style.transform = "rotate(-90deg)";
 
         }
@@ -136,7 +136,7 @@ var init = function(){
 
     //Portrait
     if (window.innerHeight > window.innerWidth){
-        button.style.top = "calc(50% - 50px)";
+        button.style.top = "calc(25% - 50px)";
         button.style.left = "calc(50% - 25px)";
         button.style.transform = "rotate(-90deg)";
     }
@@ -171,9 +171,9 @@ var update = function(){
     if (window.innerHeight > window.innerWidth){
 
         if (revealed){
-            canvas.height = (2/4)*window.innerHeight;
-            iFrame.height = (2/4)*window.innerHeight;
-            iFrame.style["margin-top"] = (2/4)*window.innerHeight+"px";
+            canvas.height = (1/4)*window.innerHeight;
+            iFrame.height = (3/4)*window.innerHeight;
+            iFrame.style["margin-top"] = (1/4)*window.innerHeight+"px";
         }
 
         else{
