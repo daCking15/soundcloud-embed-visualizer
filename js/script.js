@@ -125,7 +125,7 @@ var init = function(){
     // init gui
     m_ctrl = new Ctrl(m_blob, m_light, m_pbr, m_analyzer);
 
-    console.log("v1.02.0");
+    console.log("v1.02.1");
 
     var button = document.getElementById("reveal");
     console.log("Set On Click");

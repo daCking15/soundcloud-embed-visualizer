@@ -233,77 +233,77 @@ NoiseBlob.prototype.init_scene = function(){
 
   //Cover Art
   console.log("sXlXcXn M1");
-  var material1 = new THREE.MeshLambertMaterial({
+  var materialCover = new THREE.MeshLambertMaterial({
     map: loader.load('assets/Cover Art/m1.jpg')
+  });
+  materialCover.side = THREE.DoubleSide;
+  var geometryCover = new THREE.PlaneGeometry(10, 10);
+  var meshCover = new THREE.Mesh(geometryCover, materialCover);
+  meshCover.position.set(0,-4,0);
+  meshCover.scale.set(0.6,0.6,0.6);
+  meshCover.quaternion.set(0.7071068, 0, 0, 0.7071068);
+  this.scene.add(meshCover);
+  console.log(meshCover);
+
+  //Track 1 - Pushin C
+  console.log("Pushin C");
+  var material1 = new THREE.MeshLambertMaterial({
+    map: loader.load('assets/Cover Art/Pushin C.jpg')
   });
   material1.side = THREE.DoubleSide;
   var geometry1 = new THREE.PlaneGeometry(10, 10);
   var mesh1 = new THREE.Mesh(geometry1, material1);
-  mesh1.position.set(0,-4,0);
+  mesh1.position.set(0,0,-15);
   mesh1.scale.set(0.6,0.6,0.6);
-  mesh1.quaternion.set(0.7071068, 0, 0, 0.7071068);
   this.scene.add(mesh1);
   console.log(mesh1);
 
-  //Pushin C
-  console.log("Pushin C");
+  //Track 2 - Martyr
+  console.log("Martyr");
   var material2 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Pushin C.jpg')
+    map: loader.load('assets/Cover Art/Martyr.jpg')
   });
   material2.side = THREE.DoubleSide;
   var geometry2 = new THREE.PlaneGeometry(10, 10);
   var mesh2 = new THREE.Mesh(geometry2, material2);
-  mesh2.position.set(0,0,-15);
+  mesh2.position.set(6.66,0,-13.33);
   mesh2.scale.set(0.6,0.6,0.6);
+  mesh2.quaternion.set(0, -0.258819, 0, 0.9659258);
   this.scene.add(mesh2);
   console.log(mesh2);
 
-  //Martyr
-  console.log("Martyr");
+  //Track 3 - RIP Brotha Mane
+  console.log("RIP Brotha Mane");
   var material3 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Martyr.jpg')
+    map: loader.load('assets/Cover Art/RIP Brotha Mane.jpg')
   });
   material3.side = THREE.DoubleSide;
   var geometry3 = new THREE.PlaneGeometry(10, 10);
   var mesh3 = new THREE.Mesh(geometry3, material3);
-  mesh3.position.set(6.66,0,-13.33);
+  mesh3.position.set(13.33,0,-6.66);
   mesh3.scale.set(0.6,0.6,0.6);
-  mesh3.quaternion.set(0, -0.258819, 0, 0.9659258);
+  mesh3.quaternion.set(0, -0.5, 0, 0.8660254);
   this.scene.add(mesh3);
   console.log(mesh3);
 
-  //RIP Brotha Mane
-  console.log("RIP Brotha Mane");
+  //Track 4 - Indigo Child
+  console.log("Indigo Child");
   var material4 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/RIP Brotha Mane.jpg')
+    map: loader.load('assets/Cover Art/Indigo Child.jpg')
   });
   material4.side = THREE.DoubleSide;
   var geometry4 = new THREE.PlaneGeometry(10, 10);
   var mesh4 = new THREE.Mesh(geometry4, material4);
-  mesh4.position.set(13.33,0,-6.66);
+  mesh4.position.set(15,0,0);
   mesh4.scale.set(0.6,0.6,0.6);
-  mesh4.quaternion.set(0, -0.5, 0, 0.8660254);
+  mesh4.quaternion.set(0, -0.7071068, 0, 0.7071068);
   this.scene.add(mesh4);
   console.log(mesh4);
 
-  //Placeholder 1
-  console.log("Placeholder 1");
-  var materialP1 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/m1.jpg')
-  });
-  materialP1.side = THREE.DoubleSide;
-  var geometryP1 = new THREE.PlaneGeometry(10, 10);
-  var meshP1 = new THREE.Mesh(geometryP1, materialP1);
-  meshP1.position.set(15,0,0);
-  meshP1.scale.set(0.6,0.6,0.6);
-  meshP1.quaternion.set(0, -0.7071068, 0, 0.7071068);
-  this.scene.add(meshP1);
-  console.log(meshP1);
-
-  //Indigo Child
-  console.log("Indigo Child");
+  //Track 5 - Red Sky
+  console.log("Red Sky");
   var material5 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Indigo Child.jpg')
+    map: loader.load('assets/Cover Art/Red Sky.jpg')
   });
   material5.side = THREE.DoubleSide;
   var geometry5 = new THREE.PlaneGeometry(10, 10);
@@ -314,10 +314,10 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(mesh5);
   console.log(mesh5);
 
-  //Red Sky
-  console.log("Red Sky");
+  //Track 6 - Feed Me Adversity
+  console.log("Feed Me Adversity");
   var material6 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Red Sky.jpg')
+    map: loader.load('assets/Cover Art/Feed Me Adversity.png')
   });
   material6.side = THREE.DoubleSide;
   var geometry6 = new THREE.PlaneGeometry(10, 10);
@@ -328,10 +328,10 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(mesh6);
   console.log(mesh6);
 
-  //Feed Me Adversity
-  console.log("Feed Me Adversity");
+  //Track 7 - Trap Back
+  console.log("Trap Back");
   var material7 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Feed Me Adversity.png')
+    map: loader.load('assets/Cover Art/Trap Back.jpg')
   });
   material7.side = THREE.DoubleSide;
   var geometry7 = new THREE.PlaneGeometry(10, 10);
@@ -342,10 +342,10 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(mesh7);
   console.log(mesh7);
 
-  //Trap Back
-  console.log("Trap Back");
+  //Track 8 - Inflection Point
+  console.log("Inflection Point");
   var material8 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Trap Back.jpg')
+    map: loader.load('assets/Cover Art/Inflection Point.jpg')
   });
   material8.side = THREE.DoubleSide;
   var geometry8 = new THREE.PlaneGeometry(10, 10);
@@ -356,10 +356,10 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(mesh8);
   console.log(mesh8);
 
-  //Inflection Point
-  console.log("Inflection Point");
+  //Track 9 - It's What It Is
+  console.log("It's What It Is");
   var material9 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/Inflection Point.jpg')
+    map: loader.load("assets/Cover Art/It's What It Is.png")
   });
   material9.side = THREE.DoubleSide;
   var geometry9 = new THREE.PlaneGeometry(10, 10);
@@ -370,47 +370,47 @@ NoiseBlob.prototype.init_scene = function(){
   this.scene.add(mesh9);
   console.log(mesh9);
 
-  //Placeholder 2
-  console.log("Placeholder 2");
-  var materialP2 = new THREE.MeshLambertMaterial({
-    map: loader.load('assets/Cover Art/m1.jpg')
-  });
-  materialP2.side = THREE.DoubleSide;
-  var geometryP2 = new THREE.PlaneGeometry(10, 10);
-  var meshP2 = new THREE.Mesh(geometryP2, materialP2);
-  meshP2.position.set(-15,0,0);
-  meshP2.scale.set(0.6,0.6,0.6);
-  meshP2.quaternion.set(0, -0.7071068, 0, -0.7071068);
-  this.scene.add(meshP2);
-  console.log(meshP2);
-
-  //It's What It Is
-  console.log("It's What It Is");
+  //Track 10 - Chris Rocked
+  console.log("Chris Rocked");
   var material10 = new THREE.MeshLambertMaterial({
-    map: loader.load("assets/Cover Art/It's What It Is.png")
+    map: loader.load("assets/Cover Art/Chris Rocked.png")
   });
   material10.side = THREE.DoubleSide;
   var geometry10 = new THREE.PlaneGeometry(10, 10);
   var mesh10 = new THREE.Mesh(geometry10, material10);
-  mesh10.position.set(-13.33,0,-6.66);
+  mesh10.position.set(-15,0,0);
   mesh10.scale.set(0.6,0.6,0.6);
-  mesh10.quaternion.set(0, -0.5, 0, -0.8660254);
+  mesh10.quaternion.set(0, -0.7071068, 0, -0.7071068);
   this.scene.add(mesh10);
   console.log(mesh10);
 
-  //Track 11
-  console.log("Chris Rocked");
+  //Track 11 - Recharge
+  console.log("Recharge");
   var material11 = new THREE.MeshLambertMaterial({
-    map: loader.load("assets/Cover Art/Chris Rocked.png")
+    map: loader.load("assets/Cover Art/Recharge.png")
   });
   material11.side = THREE.DoubleSide;
   var geometry11 = new THREE.PlaneGeometry(10, 10);
   var mesh11 = new THREE.Mesh(geometry11, material11);
-  mesh11.position.set(-6.66,0,-13.33);
+  mesh11.position.set(-13.33,0,-6.66);
   mesh11.scale.set(0.6,0.6,0.6);
-  mesh11.quaternion.set(0, -0.258819, 0, -0.9659258);
+  mesh11.quaternion.set(0, -0.5, 0, -0.8660254);
   this.scene.add(mesh11);
   console.log(mesh11);
+
+  //Track 12 - Boogie C
+  console.log("Boogie C");
+  var material12 = new THREE.MeshLambertMaterial({
+    map: loader.load("assets/Cover Art/Boogie C.jpg")
+  });
+  material12.side = THREE.DoubleSide;
+  var geometry12 = new THREE.PlaneGeometry(10, 10);
+  var mesh12 = new THREE.Mesh(geometry12, material12);
+  mesh12.position.set(-6.66,0,-13.33);
+  mesh12.scale.set(0.6,0.6,0.6);
+  mesh12.quaternion.set(0, -0.258819, 0, -0.9659258);
+  this.scene.add(mesh12);
+  console.log(mesh12);
 
   // Add a point light with #fff color, .7 intensity, and 0 distance
   var light = new THREE.PointLight( 0xffffff, 1, 0 );
