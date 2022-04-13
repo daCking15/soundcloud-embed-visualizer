@@ -11,6 +11,100 @@ var m_device_checker;
 var revealed = true;
 var transitionFinished = false;
 
+var landscapeHidden = function(){
+
+    var canvas = document.getElementsByTagName("canvas")[0];
+    var iFrame = document.getElementsByTagName("iframe")[0];
+    var button = document.getElementById("reveal");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.width = canvas.width + "px";
+    canvas.style.height = canvas.height + "px";
+    canvas.style["margin-left"] = "0px";
+
+    iFrame.width = "0";
+    iFrame.height = window.innerHeight;
+    iFrame.style.height = window.innerHeight + "px";
+    iFrame.style.width = "0px";
+    iFrame.style["margin-top"] = "0px";
+
+    button.style.left = "0px";
+    button.style.top = "calc(50% - 25px)";
+    button.style.transform = "rotate(180deg)";
+
+}
+
+var landscapeReveal = function(){
+
+    var canvas = document.getElementsByTagName("canvas")[0];
+    var iFrame = document.getElementsByTagName("iframe")[0];
+    var button = document.getElementById("reveal");
+    
+    canvas.width = (3/4)*window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.width = canvas.width + "px";
+    canvas.style.height = canvas.height + "px";
+    canvas.style["margin-left"] = "25%";
+
+    iFrame.width = (1/4)*window.innerWidth;
+    iFrame.height = window.innerHeight;
+    iFrame.style.height = window.innerHeight + "px";
+    iFrame.style.width = (1/4)*window.innerWidth + "px";
+    iFrame.style["margin-top"] = "0px";
+
+    button.style.left = "25%";
+    button.style.top = "calc(50% - 25px)";
+    button.style.transform = "rotate(0deg)";
+
+}
+
+var portraitHidden = function(){
+
+    var canvas = document.getElementsByTagName("canvas")[0];
+    var iFrame = document.getElementsByTagName("iframe")[0];
+    var button = document.getElementById("reveal");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.style.height = canvas.height + "px";
+    canvas.style.width = canvas.width + "px";
+    canvas.style["margin-left"] = "0px";
+
+    iFrame.width = window.innerWidth;
+    iFrame.style.width = iFrame.width + "px";
+    iFrame.style["margin-top"] = "100%";
+
+    button.style.top = "calc(100% - 50px)";
+    button.style.left = "calc(50% - 25px)";
+    button.style.transform = "rotate(90deg)";
+
+}
+
+var portraitReveal = function(){
+
+    var canvas = document.getElementsByTagName("canvas")[0];
+    var iFrame = document.getElementsByTagName("iframe")[0];
+    var button = document.getElementById("reveal");
+
+    canvas.height = (1/4)*window.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.style.height = canvas.height + "px";
+    canvas.style.width = canvas.width + "px";
+    canvas.style["margin-left"] = "0px";
+
+    iFrame.height = (3/4)*window.innerHeight;
+    iFrame.width = window.innerWidth;
+    iFrame.style.width = iFrame.width + "px";
+    iFrame.style.height = iFrame.height + "px";
+    iFrame.style["margin-top"] = (1/4)*window.innerHeight+"px";
+
+    button.style.top = "calc(25% - 50px)";
+    button.style.left = "calc(50% - 25px)";
+    button.style.transform = "rotate(-90deg)";
+
+}
+
 var reveal = function(){
 
     console.log("Reveal");
@@ -18,7 +112,6 @@ var reveal = function(){
     var canvas = document.getElementsByTagName("canvas")[0];
     var iFrame = document.getElementsByTagName("iframe")[0];
     var button = document.getElementById("reveal");
-    var arrow = button.children[0];
 
     canvas.style.transition = "margin-left 2s ease 0s, width 2s ease 0s, height 1s ease 0s";
     iFrame.style.transition = "width 2s ease 0s, height 2s ease 0s, margin-top 2s ease 0s";
@@ -28,59 +121,20 @@ var reveal = function(){
     if (window.innerHeight > window.innerWidth){
 
         //Unreveal
-        if (revealed){
-
-            canvas.height = window.innerHeight;
-            canvas.style.height = canvas.height + "px";
-
-            //iFrame.style.height = "0px";
-            iFrame.style["margin-top"] = "100%";
-
-            button.style.top = "calc(100% - 50px)";
-            button.style.transform = "rotate(90deg)";
-
-        }
+        if (revealed){ portraitHidden(); }
 
         //Reveal
-        else{
-
-            canvas.height = (1/4)*window.innerHeight;
-            canvas.style.height = canvas.height + "px";
-
-            iFrame.style["margin-top"] = "25%";
-            // iFrame.style.height = "50%";
-
-            button.style.top = "calc(25% - 50px)";
-            button.style.transform = "rotate(-90deg)";
-
-        }
+        else{ portraitReveal(); }
     }
 
     //Landscape
     else{
-        if (revealed){
 
-            canvas.style["margin-left"] = "0px";
-            canvas.width = window.innerWidth;
-            canvas.style.width = canvas.width + "px";
+        //Unreveal
+        if (revealed){ landscapeHidden(); }
 
-            iFrame.style.width = "0px";
-
-            button.style.left = "0px";
-            button.style.transform = "rotate(180deg)";
-        }
-
-        else{
-
-            canvas.style["margin-left"] = "25%";
-            canvas.width = window.innerWidth;
-            canvas.style.width = canvas.width + "px";
-
-            iFrame.style.width = (1/4)*window.innerWidth + "px";
-
-            button.style.left = "25%";
-            button.style.transform = "rotate(0deg)"; 
-        }
+        //Reveal
+        else{ landscapeReveal(); }
     }
 
     revealed = !revealed
@@ -129,32 +183,21 @@ var init = function(){
     console.log("v1.02.2: Switch Between Portrait & Landscape");
 
     var button = document.getElementById("reveal");
-    console.log("Set On Click");
     button.onclick = reveal;
 
-    var iFrame = document.getElementsByTagName("iframe")[0];
-    var canvas = document.getElementsByTagName("canvas")[0];
 
     //Portrait
-    if (window.innerHeight > window.innerWidth){
-        button.style.top = "calc(25% - 50px)";
-        button.style.left = "calc(50% - 25px)";
-        button.style.transform = "rotate(-90deg)";
-    }
+    if (window.innerHeight > window.innerWidth){ portraitReveal(); }
 
     //Landscape
-    else{
-        button.style.top = "calc(50% - 50px)";
-        button.style.left = "25%";
-    }
-
-    console.log(navigator);
+    else{ landscapeReveal(); }
 
 };
 
 
 var update = function(){
 
+    //Transition
     var transition = document.getElementById("transition");
     if (transition.style.opacity > 0){
         transition.style.opacity -= 0.01;
@@ -165,73 +208,31 @@ var update = function(){
     }
 
     var canvas = document.getElementsByTagName("canvas")[0];
-    canvas.style["z-index"] = -1;
-
     var iFrame = document.getElementsByTagName("iframe")[0];
-
     var button = document.getElementById("reveal");
+
+    canvas.style["z-index"] = -1;
 
     //Portrait
     if (window.innerHeight > window.innerWidth){
 
-        if (revealed){
-            canvas.height = (1/4)*window.innerHeight;
+        //Keep Revealed
+        if (revealed){ portraitReveal(); }
 
-            iFrame.height = (3/4)*window.innerHeight;
-            iFrame.style["margin-top"] = (1/4)*window.innerHeight+"px";
+        //Keep Hidden
+        else{ portraitHidden(); }
 
-            button.style.top = "calc(25% - 50px)";
-            button.style.left = "calc(50% - 25px)";
-            button.style.transform = "rotate(-90deg)";
-        }
-
-        else{
-            canvas.height = window.innerHeight;
-
-            iFrame.style["margin-top"] = window.innerHeight;
-            button.style.top = "calc(100% - 50px)";
-            button.style.transform = "rotate(90deg)";
-        }
-
-        canvas.style["margin-left"] = "0px";
-        canvas.style.height = canvas.height + "px";
-        canvas.width = window.innerWidth;
-        canvas.style.width = canvas.width + "px";
-
-        iFrame.width = window.innerWidth;
     }
 
     //Landscape
     else {
 
-        if (revealed){
+        //Keep Revealed
+        if (revealed){ landscapeReveal(); }
 
-            canvas.style["margin-left"] = "25%";
-            canvas.width = (3/4)*window.innerWidth;
+        //Keep Hidden
+        else{ landscapeHidden(); }
 
-            iFrame.width = (1/4)*window.innerWidth;
-
-            button.style.top = "calc(50% - 50px)";
-            button.style.left = "25%";
-            button.style.transform = "rotate(0deg)";
-        }
-
-        else{
-            canvas.style["margin-left"] = "0px";
-            canvas.width = window.innerWidth;
-
-            iFrame.width = "0px";
-
-            button.style.left = "0px";
-            button.style.transform = "rotate(180deg)";
-        }
-
-        canvas.height = window.innerHeight;
-        canvas.style.height = canvas.height + "px";
-        canvas.style.width = canvas.width + "px";
-
-        iFrame.height = window.innerHeight;
-        iFrame.style["margin-top"] = "0px";
     }
 
     var resizeEvent = window.document.createEvent('UIEvents'); 
