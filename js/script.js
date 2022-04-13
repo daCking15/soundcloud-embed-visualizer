@@ -9,6 +9,7 @@ var m_ctrl;
 var m_device_checker;
 
 var revealed = true;
+var transitionFinished = false;
 
 var reveal = function(){
 
@@ -125,7 +126,7 @@ var init = function(){
     // init gui
     m_ctrl = new Ctrl(m_blob, m_light, m_pbr, m_analyzer);
 
-    console.log("v1.02.1");
+    console.log("v1.02.2: Switch Between Portrait & Landscape");
 
     var button = document.getElementById("reveal");
     console.log("Set On Click");
@@ -155,11 +156,12 @@ var init = function(){
 var update = function(){
 
     var transition = document.getElementById("transition");
-    if (transition.style.opacity >= 0){
+    if (transition.style.opacity > 0){
         transition.style.opacity -= 0.01;
-    }else{
+    }else if (!transitionFinished){
         transition.style.opacity = 0;
         transition.style["z-index"] = -1000;
+        transitionFinished = false
     }
 
     var canvas = document.getElementsByTagName("canvas")[0];
@@ -167,39 +169,61 @@ var update = function(){
 
     var iFrame = document.getElementsByTagName("iframe")[0];
 
+    var button = document.getElementById("reveal");
+
     //Portrait
     if (window.innerHeight > window.innerWidth){
 
         if (revealed){
             canvas.height = (1/4)*window.innerHeight;
+
             iFrame.height = (3/4)*window.innerHeight;
             iFrame.style["margin-top"] = (1/4)*window.innerHeight+"px";
+
+            button.style.top = "calc(25% - 50px)";
+            button.style.left = "calc(50% - 25px)";
+            button.style.transform = "rotate(-90deg)";
         }
 
         else{
             canvas.height = window.innerHeight;
-            //iFrame.height = "0px";
+
             iFrame.style["margin-top"] = window.innerHeight;
+            button.style.top = "calc(100% - 50px)";
+            button.style.transform = "rotate(90deg)";
         }
 
+        canvas.style["margin-left"] = "0px";
         canvas.style.height = canvas.height + "px";
         canvas.width = window.innerWidth;
         canvas.style.width = canvas.width + "px";
+
         iFrame.width = window.innerWidth;
     }
 
     //Landscape
     else {
+
         if (revealed){
+
             canvas.style["margin-left"] = "25%";
             canvas.width = (3/4)*window.innerWidth;
+
             iFrame.width = (1/4)*window.innerWidth;
+
+            button.style.top = "calc(50% - 50px)";
+            button.style.left = "25%";
+            button.style.transform = "rotate(0deg)";
         }
 
         else{
             canvas.style["margin-left"] = "0px";
             canvas.width = window.innerWidth;
+
             iFrame.width = "0px";
+
+            button.style.left = "0px";
+            button.style.transform = "rotate(180deg)";
         }
 
         canvas.height = window.innerHeight;
@@ -207,6 +231,7 @@ var update = function(){
         canvas.style.width = canvas.width + "px";
 
         iFrame.height = window.innerHeight;
+        iFrame.style["margin-top"] = "0px";
     }
 
     var resizeEvent = window.document.createEvent('UIEvents'); 
