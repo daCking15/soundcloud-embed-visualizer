@@ -28,17 +28,26 @@ var AudioAnalyzer = function(){
 };
 
 AudioAnalyzer.prototype.init = function(_stream){
+
+  console.log(_stream);
+
   var _ctx = new (
       window.AudioContext || 
       window.webkitAudioContext || 
       window.mozAudioContext || 
       window.msAudioContext)();
 
+  console.log(ctx);
+
   var _source = _ctx.createMediaStreamSource(_stream);
+
+  console.log(_source);
 
   // https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
   this.analyzer = _ctx.createAnalyser();
   this.analyzer.fftSize = 128;
+
+  console.log(this.analyzer);
 
   this.gain = _ctx.createGain();
   _source.connect(this.gain);
