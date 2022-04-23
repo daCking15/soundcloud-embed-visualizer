@@ -6,9 +6,8 @@ var AudioAnalyzer = function(){
       navigator.getUserMedia ||
       navigator.webkitGetUserMedia ||
       navigator.mozGetUserMedia ||
+      navigator.mediaDevices.getUserMedia ||
       navigator.msGetUserMedia);
-
-  console.log(navigator.getUserMedia);
 
   if (navigator.getUserMedia) {
       console.log('getUserMedia supported.');
