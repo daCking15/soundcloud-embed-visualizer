@@ -14,11 +14,11 @@ var AudioAnalyzer = function(){
           audio: true
       }, this.init.bind(this),
       this.init_without_stream.bind(this));
-  } else if (navigator.mediaDevices.getUserMedia) {
-  	console.log("iOS navigator.mediaDevices.getUserMedia");
-    navigator.mediaDevices.getUserMedia ({
-        audio: true
-    }).then(this.init.bind(this));
+  // } else if (navigator.mediaDevices.getUserMedia) {
+  // 	console.log("iOS navigator.mediaDevices.getUserMedia");
+  //   navigator.mediaDevices.getUserMedia ({
+  //       audio: true
+  //   }).then(this.init.bind(this));
   } else {
       if(window.location.protocol == 'https:')
           this.init_without_stream();
